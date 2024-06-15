@@ -371,10 +371,9 @@ unsigned long sugov_effective_cpu_perf(int cpu, unsigned long actual,
 	return max(min, max);
 }
 
-unsigned long sched_cpu_util(int cpu, unsigned long max)
+unsigned long sched_cpu_util(int cpu)
 {
-	return schedutil_cpu_util(cpu, cpu_util_cfs(cpu_rq(cpu)), max,
-				  ENERGY_UTIL, NULL);
+	return schedutil_cpu_util(cpu, cpu_util_cfs(cpu_rq(cpu)), NULL, NULL);
 }
 
 #ifdef CONFIG_SCHED_WALT
